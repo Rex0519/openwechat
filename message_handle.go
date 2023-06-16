@@ -148,6 +148,11 @@ func (m *MessageMatchDispatcher) OnEmoticon(handlers ...MessageContextHandler) {
 	m.RegisterHandler(func(message *Message) bool { return message.IsEmoticon() }, handlers...)
 }
 
+// OnVideo 注册处理消息类型为Video的处理函数
+func (m *MessageMatchDispatcher) OnVideo(handlers ...MessageContextHandler) {
+	m.RegisterHandler(func(message *Message) bool { return message.IsVideo() }, handlers...)
+}
+
 // OnVoice 注册处理消息类型为Voice的处理函数
 func (m *MessageMatchDispatcher) OnVoice(handlers ...MessageContextHandler) {
 	m.RegisterHandler(func(message *Message) bool { return message.IsVoice() }, handlers...)
